@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0c1813"/>
+      <stop offset="55%" stop-color="#050a08"/>
+      <stop offset="100%" stop-color="#020403"/>
+    </radialGradient>
+
+    <!-- Neon Green Gradients -->
+    <linearGradient id="neonGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="50%" stop-color="#00ff66"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <linearGradient id="shieldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff66"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#00ff66"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="deepGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)" stroke="#13241b" stroke-width="4"/>
+
+  <!-- Matrix / Data Grid Background -->
+  <g opacity="0.1" stroke="#00ff66" stroke-width="1.5">
+    <line x1="64" y1="64" x2="448" y2="64"/>
+    <line x1="64" y1="128" x2="448" y2="128"/>
+    <line x1="64" y1="192" x2="448" y2="192"/>
+    <line x1="64" y1="256" x2="448" y2="256"/>
+    <line x1="64" y1="320" x2="448" y2="320"/>
+    <line x1="64" y1="384" x2="448" y2="384"/>
+    <line x1="64" y1="448" x2="448" y2="448"/>
+
+    <line x1="64" y1="64" x2="64" y2="448"/>
+    <line x1="128" y1="64" x2="128" y2="448"/>
+    <line x1="192" y1="64" x2="192" y2="448"/>
+    <line x1="256" y1="64" x2="256" y2="448"/>
+    <line x1="320" y1="64" x2="320" y2="448"/>
+    <line x1="384" y1="64" x2="384" y2="448"/>
+    <line x1="448" y1="64" x2="448" y2="448"/>
+  </g>
+
+  <!-- Outer Cryptographic Ring -->
+  <circle cx="256" cy="256" r="192" fill="none" stroke="#00ff66" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.35"/>
+  <circle cx="256" cy="256" r="214" fill="none" stroke="#00ff66" stroke-width="1" stroke-dasharray="4 8" opacity="0.2"/>
+
+  <!-- Central Shield Geometry -->
+  <g transform="translate(0, -10)">
+    <!-- Outer Sentinel Shield -->
+    <path d="M 256 90 L 376 142 L 376 270 C 376 348 256 394 256 394 C 256 394 136 348 136 270 L 136 142 Z" 
+          fill="#06120c" 
+          stroke="url(#shieldBorder)" 
+          stroke-width="7" 
+          filter="url(#neonGlow)"/>
+
+    <!-- Inner Lattice Framework -->
+    <path d="M 256 126 L 344 164 L 344 266 C 344 322 256 358 256 358 C 256 358 168 322 168 266 L 168 164 Z" 
+          fill="none" 
+          stroke="#00ff66" 
+          stroke-width="2.5" 
+          stroke-dasharray="6 4" 
+          opacity="0.6"/>
+
+    <!-- Cryptographic Interconnect Grid Lines -->
+    <line x1="256" y1="140" x2="256" y2="216" stroke="#00ff66" stroke-width="4" filter="url(#neonGlow)"/>
+    <line x1="256" y1="276" x2="256" y2="340" stroke="#00ff66" stroke-width="4" filter="url(#neonGlow)"/>
+    <line x1="184" y1="246" x2="226" y2="246" stroke="#00ff66" stroke-width="4" filter="url(#neonGlow)"/>
+    <line x1="286" y1="246" x2="328" y2="246" stroke="#00ff66" stroke-width="4" filter="url(#neonGlow)"/>
+
+    <!-- Perimeter Circuit Pins -->
+    <circle cx="256" cy="140" r="6" fill="#4ade80"/>
+    <circle cx="256" cy="340" r="6" fill="#4ade80"/>
+    <circle cx="184" cy="246" r="6" fill="#4ade80"/>
+    <circle cx="328" cy="246" r="6" fill="#4ade80"/>
+
+    <!-- Central Telemetry Core / BLAKE2b Hash Hexagon -->
+    <polygon points="256,220 286,236 286,268 256,284 226,268 226,236" 
+             fill="url(#neonGreen)" 
+             filter="url(#deepGlow)"/>
+    <polygon points="256,228 276,240 276,264 256,274 236,264 236,240" 
+             fill="#ffffff"/>
+  </g>
+
+  <!-- Bottom Brand Text Monogram -->
+  <text x="256" y="445" 
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', 'Segoe UI', monospace" 
+        font-size="28" 
+        font-weight="900" 
+        letter-spacing="10" 
+        fill="#ffffff" 
+        text-anchor="middle">
+    SENTINEL
+  </text>
+  
+  <text x="256" y="475" 
+        font-family="'SF Mono', 'Courier New', monospace" 
+        font-size="14" 
+        font-weight="700" 
+        letter-spacing="5" 
+        fill="#00ff66" 
+        filter="url(#neonGlow)"
+        text-anchor="middle">
+    BTCB2 POOL
+  </text>
+</svg>
